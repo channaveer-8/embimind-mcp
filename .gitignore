@@ -1,0 +1,35 @@
+# Ignore large binaries and unneeded build artefacts
+
+# Large toolchain zip (released as a GitHub asset)
+toolchain-full-*.zip
+
+# Toolchain binaries folder (kept out of the repo)
+src/embimind_mcp/binaries/
+toolchain/
+
+# Tests (optional, not required for the package)
+tests/
+
+# Byte‑code caches and compiled files
+__pycache__/
+*.py[cod]
+
+# Python cache / build artefacts
+*.egg-info/
+*.egg
+*.whl
+build/
+Dist/
+Dist/
+
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# OS‑specific files
+.DS_Store
+Thumbs.db

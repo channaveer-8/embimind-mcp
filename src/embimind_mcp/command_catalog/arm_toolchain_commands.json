@@ -1,0 +1,682 @@
+{
+  "catalogue_version": "1.0.0",
+  "project": "EmbiMind",
+  "component": "ARM GNU Toolchain",
+  "description": "Structured catalogue of ARM GNU executables and the MCP tools currently exposed by EmbiMind.",
+  "target_prefix": "arm-none-eabi-",
+  "cross_platform_contract": {
+    "mcp_interface": "Identical tool names, parameters, and result semantics on Windows and Linux.",
+    "package_strategy": "Replace the platform-specific toolchain directory; keep the Python MCP implementation shared.",
+    "executable_resolution_order": [
+      "environment_variable_override",
+      "bundled_toolchain_directory",
+      "system_path"
+    ],
+    "note": "The resolver must select the correct executable filename for the host OS. Confirm that all lookup levels are implemented before depending on them."
+  },
+  "required_tools": [
+    "gcc",
+    "g++",
+    "as",
+    "ld",
+    "ar",
+    "objcopy",
+    "objdump",
+    "readelf",
+    "nm",
+    "size",
+    "gdb"
+  ],
+  "toolchain_executables": [
+    {
+      "name": "gcc",
+      "executable_family": "arm-none-eabi-gcc",
+      "category": "compiler",
+      "description": "GNU C compiler and driver; also drives the link step."
+    },
+    {
+      "name": "g++",
+      "executable_family": "arm-none-eabi-g++",
+      "category": "compiler",
+      "description": "GNU C++ compiler driver."
+    },
+    {
+      "name": "cpp",
+      "executable_family": "arm-none-eabi-cpp",
+      "category": "preprocessor",
+      "description": "GNU C/C++ preprocessor."
+    },
+    {
+      "name": "as",
+      "executable_family": "arm-none-eabi-as",
+      "category": "assembler",
+      "description": "GNU assembler."
+    },
+    {
+      "name": "ld",
+      "executable_family": "arm-none-eabi-ld",
+      "category": "linker",
+      "description": "GNU linker."
+    },
+    {
+      "name": "ld.bfd",
+      "executable_family": "arm-none-eabi-ld.bfd",
+      "category": "linker",
+      "description": "GNU BFD linker backend."
+    },
+    {
+      "name": "ar",
+      "executable_family": "arm-none-eabi-ar",
+      "category": "archive",
+      "description": "Create, modify and inspect static archives."
+    },
+    {
+      "name": "ranlib",
+      "executable_family": "arm-none-eabi-ranlib",
+      "category": "archive",
+      "description": "Generate or update an archive symbol index."
+    },
+    {
+      "name": "gcc-ar",
+      "executable_family": "arm-none-eabi-gcc-ar",
+      "category": "archive",
+      "description": "GCC wrapper around ar, supporting plugin/LTO integration."
+    },
+    {
+      "name": "gcc-ranlib",
+      "executable_family": "arm-none-eabi-gcc-ranlib",
+      "category": "archive",
+      "description": "GCC wrapper around ranlib, supporting plugin/LTO integration."
+    },
+    {
+      "name": "objcopy",
+      "executable_family": "arm-none-eabi-objcopy",
+      "category": "binary_generator",
+      "description": "Copy and translate object files and executable formats."
+    },
+    {
+      "name": "strip",
+      "executable_family": "arm-none-eabi-strip",
+      "category": "binary_generator",
+      "description": "Discard symbols and other information from object files."
+    },
+    {
+      "name": "objdump",
+      "executable_family": "arm-none-eabi-objdump",
+      "category": "elf_inspector",
+      "description": "Display information about object files and disassemble code."
+    },
+    {
+      "name": "readelf",
+      "executable_family": "arm-none-eabi-readelf",
+      "category": "elf_inspector",
+      "description": "Display information about ELF files."
+    },
+    {
+      "name": "nm",
+      "executable_family": "arm-none-eabi-nm",
+      "category": "elf_inspector",
+      "description": "List symbols from object files."
+    },
+    {
+      "name": "size",
+      "executable_family": "arm-none-eabi-size",
+      "category": "elf_inspector",
+      "description": "Report section sizes and total memory footprint."
+    },
+    {
+      "name": "addr2line",
+      "executable_family": "arm-none-eabi-addr2line",
+      "category": "elf_inspector",
+      "description": "Translate addresses into source file and line information."
+    },
+    {
+      "name": "strings",
+      "executable_family": "arm-none-eabi-strings",
+      "category": "elf_inspector",
+      "description": "Print sequences of printable characters from files."
+    },
+    {
+      "name": "c++filt",
+      "executable_family": "arm-none-eabi-c++filt",
+      "category": "elf_inspector",
+      "description": "Demangle encoded C++ symbol names."
+    },
+    {
+      "name": "elfedit",
+      "executable_family": "arm-none-eabi-elfedit",
+      "category": "elf_inspector",
+      "description": "Update ELF file metadata."
+    },
+    {
+      "name": "gcov",
+      "executable_family": "arm-none-eabi-gcov",
+      "category": "coverage",
+      "description": "Generate source coverage reports from GCC coverage data."
+    },
+    {
+      "name": "gcov-dump",
+      "executable_family": "arm-none-eabi-gcov-dump",
+      "category": "coverage",
+      "description": "Dump information from GCC coverage data files."
+    },
+    {
+      "name": "gcov-tool",
+      "executable_family": "arm-none-eabi-gcov-tool",
+      "category": "coverage",
+      "description": "Process and merge GCC coverage data."
+    },
+    {
+      "name": "gprof",
+      "executable_family": "arm-none-eabi-gprof",
+      "category": "profiling",
+      "description": "Display profiling information from gprof data."
+    },
+    {
+      "name": "lto-dump",
+      "executable_family": "arm-none-eabi-lto-dump",
+      "category": "lto",
+      "description": "Inspect GCC link-time optimization object information."
+    },
+    {
+      "name": "gdb",
+      "executable_family": "arm-none-eabi-gdb",
+      "category": "debugger",
+      "description": "GNU debugger for ARM bare-metal targets."
+    },
+    {
+      "name": "gdb-py",
+      "executable_family": "arm-none-eabi-gdb-py",
+      "category": "debugger",
+      "description": "Python-enabled GNU debugger, if included in this toolchain build."
+    }
+  ],
+  "mcp_tools": [
+    {
+      "name": "check_arm_toolchain",
+      "description": "Detect and validate the configured ARM GNU toolchain.",
+      "parameters": []
+    },
+    {
+      "name": "list_arm_tools",
+      "description": "List ARM GNU toolchain executables detected in the configured bin directory.",
+      "parameters": []
+    },
+    {
+      "name": "compile_c",
+      "description": "Compile one C source file into an object file.",
+      "parameters": [
+        {
+          "name": "source",
+          "type": "str",
+          "required": true
+        },
+        {
+          "name": "output",
+          "type": "str | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "flags",
+          "type": "list[str] | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "include_dirs",
+          "type": "list[str] | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "defines",
+          "type": "list[str] | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "timeout",
+          "type": "int",
+          "required": false,
+          "default": 60
+        }
+      ]
+    },
+    {
+      "name": "compile_cpp",
+      "description": "Compile one C++ source file into an object file.",
+      "parameters": [
+        {
+          "name": "source",
+          "type": "str",
+          "required": true
+        },
+        {
+          "name": "output",
+          "type": "str | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "flags",
+          "type": "list[str] | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "include_dirs",
+          "type": "list[str] | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "defines",
+          "type": "list[str] | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "timeout",
+          "type": "int",
+          "required": false,
+          "default": 60
+        }
+      ]
+    },
+    {
+      "name": "preprocess_source",
+      "description": "Run the C/C++ preprocessor on a source file.",
+      "parameters": [
+        {
+          "name": "source",
+          "type": "str",
+          "required": true
+        },
+        {
+          "name": "output",
+          "type": "str | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "flags",
+          "type": "list[str] | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "include_dirs",
+          "type": "list[str] | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "defines",
+          "type": "list[str] | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "timeout",
+          "type": "int",
+          "required": false,
+          "default": 60
+        }
+      ]
+    },
+    {
+      "name": "link_elf",
+      "description": "Link object files into an ELF firmware image.",
+      "parameters": [
+        {
+          "name": "object_files",
+          "type": "list[str]",
+          "required": true
+        },
+        {
+          "name": "output",
+          "type": "str",
+          "required": true
+        },
+        {
+          "name": "linker_script",
+          "type": "str | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "flags",
+          "type": "list[str] | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "library_dirs",
+          "type": "list[str] | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "libraries",
+          "type": "list[str] | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "map_file",
+          "type": "str | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "gc_sections",
+          "type": "bool",
+          "required": false,
+          "default": false
+        },
+        {
+          "name": "print_memory_usage",
+          "type": "bool",
+          "required": false,
+          "default": false
+        },
+        {
+          "name": "timeout",
+          "type": "int",
+          "required": false,
+          "default": 120
+        }
+      ]
+    },
+    {
+      "name": "create_static_library",
+      "description": "Create a static library archive from object files.",
+      "parameters": [
+        {
+          "name": "object_files",
+          "type": "list[str]",
+          "required": true
+        },
+        {
+          "name": "output",
+          "type": "str",
+          "required": true
+        },
+        {
+          "name": "flags",
+          "type": "str",
+          "required": false,
+          "default": "rcs"
+        },
+        {
+          "name": "timeout",
+          "type": "int",
+          "required": false,
+          "default": 60
+        }
+      ]
+    },
+    {
+      "name": "elf_to_bin",
+      "description": "Convert an ELF firmware image into a raw binary.",
+      "parameters": [
+        {
+          "name": "elf_file",
+          "type": "str",
+          "required": true
+        },
+        {
+          "name": "output_file",
+          "type": "str | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "flags",
+          "type": "list[str] | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "timeout",
+          "type": "int",
+          "required": false,
+          "default": 60
+        }
+      ]
+    },
+    {
+      "name": "elf_to_hex",
+      "description": "Convert an ELF firmware image into Intel HEX format.",
+      "parameters": [
+        {
+          "name": "elf_file",
+          "type": "str",
+          "required": true
+        },
+        {
+          "name": "output_file",
+          "type": "str | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "flags",
+          "type": "list[str] | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "timeout",
+          "type": "int",
+          "required": false,
+          "default": 60
+        }
+      ]
+    },
+    {
+      "name": "convert_elf",
+      "description": "Convert an ELF image to a supported objcopy output format.",
+      "parameters": [
+        {
+          "name": "elf_file",
+          "type": "str",
+          "required": true
+        },
+        {
+          "name": "output_file",
+          "type": "str",
+          "required": true
+        },
+        {
+          "name": "output_format",
+          "type": "str",
+          "required": true
+        },
+        {
+          "name": "flags",
+          "type": "list[str] | None",
+          "required": false,
+          "default": null
+        },
+        {
+          "name": "timeout",
+          "type": "int",
+          "required": false,
+          "default": 60
+        }
+      ]
+    },
+    {
+      "name": "inspect_elf_header",
+      "description": "Inspect ELF file header information.",
+      "parameters": [
+        {
+          "name": "elf_file",
+          "type": "str",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "inspect_elf_sections",
+      "description": "List sections in an ELF firmware image.",
+      "parameters": [
+        {
+          "name": "elf_file",
+          "type": "str",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "inspect_elf_segments",
+      "description": "Inspect ELF program segments and load information.",
+      "parameters": [
+        {
+          "name": "elf_file",
+          "type": "str",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "inspect_elf_symbols",
+      "description": "Inspect symbols in an ELF firmware image.",
+      "parameters": [
+        {
+          "name": "elf_file",
+          "type": "str",
+          "required": true
+        },
+        {
+          "name": "demangle",
+          "type": "bool",
+          "required": false,
+          "default": true
+        },
+        {
+          "name": "only_external",
+          "type": "bool",
+          "required": false,
+          "default": false
+        }
+      ]
+    },
+    {
+      "name": "inspect_disassembly",
+      "description": "Disassemble an ELF image, optionally interleaving source code.",
+      "parameters": [
+        {
+          "name": "elf_file",
+          "type": "str",
+          "required": true
+        },
+        {
+          "name": "source_interleaved",
+          "type": "bool",
+          "required": false,
+          "default": false
+        },
+        {
+          "name": "all_sections",
+          "type": "bool",
+          "required": false,
+          "default": false
+        }
+      ]
+    },
+    {
+      "name": "inspect_memory_usage",
+      "description": "Report ELF section memory usage using the ARM size utility.",
+      "parameters": [
+        {
+          "name": "elf_file",
+          "type": "str",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "inspect_all_elf_headers",
+      "description": "Inspect all ELF header and metadata information.",
+      "parameters": [
+        {
+          "name": "elf_file",
+          "type": "str",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "address_to_source",
+      "description": "Map firmware addresses to source files and line numbers.",
+      "parameters": [
+        {
+          "name": "elf_file",
+          "type": "str",
+          "required": true
+        },
+        {
+          "name": "addresses",
+          "type": "list[str]",
+          "required": true
+        },
+        {
+          "name": "functions",
+          "type": "bool",
+          "required": false,
+          "default": true
+        },
+        {
+          "name": "demangle",
+          "type": "bool",
+          "required": false,
+          "default": true
+        },
+        {
+          "name": "timeout",
+          "type": "int",
+          "required": false,
+          "default": 30
+        }
+      ]
+    },
+    {
+      "name": "inspect_file_format",
+      "description": "Identify the file format and architecture of an object or firmware file.",
+      "parameters": [
+        {
+          "name": "input_file",
+          "type": "str",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "conversion_formats": {
+    "convert_elf": [
+      "binary",
+      "ihex",
+      "srec",
+      "elf"
+    ],
+    "elf_to_bin": "binary",
+    "elf_to_hex": "ihex"
+  },
+  "build_flow": [
+    "check_arm_toolchain",
+    "preprocess_source (optional)",
+    "compile_c / compile_cpp",
+    "link_elf",
+    "inspect ELF as required",
+    "elf_to_bin / elf_to_hex as required"
+  ],
+  "execution_constraints": {
+    "shell": false,
+    "arguments": "Pass arguments as individual list entries, never as one shell command string.",
+    "nonzero_exit": "A non-zero return code is a failure and must be reported.",
+    "hardware_programming": "Build and conversion tools do not flash hardware. Use the separate OpenOCD/GDB workflow."
+  }
+}

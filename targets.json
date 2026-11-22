@@ -1,0 +1,8 @@
+{
+    "STM32F411RE": {
+        "debugger": "ST-Link V2",
+        "interface": "interface/stlink.cfg",
+        "target": "target/stm32f4x.cfg",
+        "transport": "swd"
+    }
+}

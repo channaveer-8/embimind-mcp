@@ -1,0 +1,3 @@
+recursive-include src/embimind_mcp/command_catalog *
+
+
